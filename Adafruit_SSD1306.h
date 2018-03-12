@@ -148,20 +148,21 @@ class Adafruit_SSD1306 : public Adafruit_GFX {
   Adafruit_SSD1306(int8_t RST = -1);
 
   void begin(uint8_t switchvcc = SSD1306_SWITCHCAPVCC, uint8_t i2caddr = SSD1306_I2C_ADDRESS, bool reset=true);
-  void ssd1306_command(uint8_t c, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
+  void ssd1306_command(uint8_t c);
 
+  void setDisplay(uint8_t i2caddr);
   void clearDisplay(void);
-  void invertDisplay(uint8_t i, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
-  void display(uint8_t i2caddr = SSD1306_I2C_ADDRESS);
+  void invertDisplay(uint8_t i);
+  void display(void);
+  
+  void startscrollright(uint8_t start, uint8_t stop);
+  void startscrollleft(uint8_t start, uint8_t stop);
 
-  void startscrollright(uint8_t start, uint8_t stop, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
-  void startscrollleft(uint8_t start, uint8_t stop, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
+  void startscrolldiagright(uint8_t start, uint8_t stop);
+  void startscrolldiagleft(uint8_t start, uint8_t stop);
+  void stopscroll(void);
 
-  void startscrolldiagright(uint8_t start, uint8_t stop, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
-  void startscrolldiagleft(uint8_t start, uint8_t stop, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
-  void stopscroll(uint8_t i2caddr = SSD1306_I2C_ADDRESS);
-
-  void dim(boolean dim, uint8_t i2caddr = SSD1306_I2C_ADDRESS);
+  void dim(boolean dim);
 
   void drawPixel(int16_t x, int16_t y, uint16_t color);
 
